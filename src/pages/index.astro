@@ -1,0 +1,376 @@
+---
+// IUB-SPARC — coming-soon landing page with the Expression of Interest call.
+// Single job: get IUB students to fill the EOI form (founding-member list —
+// DoSA recognition needs 150 documented founding members).
+const FORM_URL = "https://inside.cassa.bd/forms/general/2026-08-15-a";
+const DEADLINE_ISO = "2026-09-08T23:59:00+06:00";
+const DEADLINE_TEXT = "8 September 2026";
+
+const activities = [
+  { name: "Stargazing & astrophotography", note: "Night-sky observation, telescope sessions and imaging from the CASSA rooftop." },
+  { name: "Workshops", note: "Hands-on telescope operation and space technology, including BDOAA preparation." },
+  { name: "Contests", note: "Astronomy and space-themed competitions that test real analytical skill." },
+  { name: "Hackathons", note: "Space-problem sprints at IUB, and teams representing IUB worldwide." },
+  { name: "Seminars", note: "Guest lectures by faculty members and industry experts." },
+  { name: "Screenings", note: "Films and documentaries on space exploration and astrophysics." },
+  { name: "Project research", note: "Original aerospace and space-science projects, exhibited to the university." },
+  { name: "Debate & discussion", note: "Open sessions on modern space trends, ethics and theories." },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IUB-SPARC — IUB Space and Astronomy Club</title>
+    <meta
+      name="description"
+      content="IUB-SPARC, the IUB Space and Astronomy Club, is preparing for launch. IUB students: express your interest and join the founding members."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:title" content="IUB-SPARC — IUB Space and Astronomy Club" />
+    <meta property="og:description" content="Preparing for launch at Independent University, Bangladesh. Express your interest and join the founding members." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sparc.cassa.bd/" />
+  </head>
+
+  <body>
+    <!-- CSS starfield: three drifting layers of box-shadow stars -->
+    <div class="sky" aria-hidden="true">
+      <div class="stars stars--far"></div>
+      <div class="stars stars--mid"></div>
+      <div class="stars stars--near"></div>
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow"><span class="blink" aria-hidden="true">●</span> Pre-launch · founding call open</p>
+      <h1 class="wordmark">IUB-<span class="wordmark__accent">SPARC</span></h1>
+      <p class="fullname">IUB <b>Sp</b>ace <b>a</b>nd Ast<b>r</b>onomy <b>C</b>lub</p>
+      <p class="lede">
+        A student-led club for everyone at Independent University, Bangladesh who is drawn to
+        astronomy, space science, aerospace and astrophysics — now preparing for launch, with
+        <a href="https://cassa.bd">CASSA</a> as its academic home.
+      </p>
+      <div class="cta">
+        <a class="btn" href={FORM_URL}>Express your interest</a>
+        <p class="cta__meta">
+          <span class="mono">IUB students only</span> · submit with your
+          <span class="mono">@iub.edu.bd</span> email · closes <span class="mono">{DEADLINE_TEXT}</span>
+        </p>
+        <p class="cta__count mono" id="countdown" data-deadline={DEADLINE_ISO}></p>
+      </div>
+    </header>
+
+    <main>
+      <section class="band">
+        <h2 class="band__title">Why a founding call?</h2>
+        <div class="prose">
+          <p>
+            IUB-SPARC is applying for official recognition as a student club under the
+            <b>Division of Student Activities (DoSA)</b>. Recognition requires at least
+            <b>150 founding student members</b>, each documented with their name, IUB ID and
+            department — and that list is built from this expression-of-interest form.
+          </p>
+          <p>
+            Filling the form takes about ten minutes: your academic details, your transcript
+            (or your enrolled-course list if this is your first semester), and five short
+            questions about what you want SPARC to be. Your answers will shape the club's
+            constitution and first-year plan; your name, student ID and department may be
+            included in the founding-member list submitted to DoSA.
+          </p>
+        </div>
+      </section>
+
+      <section class="band">
+        <h2 class="band__title">What SPARC will do</h2>
+        <ul class="grid">
+          {activities.map((a) => (
+            <li class="card">
+              <h3 class="card__name">{a.name}</h3>
+              <p class="card__note">{a.note}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="band">
+        <h2 class="band__title">How the club is organised</h2>
+        <div class="tiers">
+          <div class="tier">
+            <p class="tier__label mono">Administrative authority</p>
+            <p class="tier__name">DoSA</p>
+            <p class="tier__note">
+              Like every registered club at IUB, SPARC will be constituted under the Division of
+              Student Activities.
+            </p>
+          </div>
+          <div class="tier">
+            <p class="tier__label mono">Academic authority</p>
+            <p class="tier__name">CASSA</p>
+            <p class="tier__note">
+              The Center for Astronomy, Space Science and Astrophysics mentors the club, opens its
+              premises and instruments to it, and supports its first-year activities. SPARC is the
+              outreach face of CASSA.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>
+        IUB-SPARC · Independent University, Bangladesh ·
+        a club in formation under <a href="https://cassa.bd">CASSA</a> and DoSA
+      </p>
+      <p class="faint">Questions? Write to <a href="mailto:cassa@iub.edu.bd">cassa@iub.edu.bd</a>.</p>
+    </footer>
+
+    <script>
+      // Live countdown to the EOI deadline — plain text fallback if JS is off.
+      const el = document.getElementById("countdown");
+      if (el) {
+        const deadline = new Date(el.dataset.deadline!).getTime();
+        const tick = () => {
+          const left = deadline - Date.now();
+          if (left <= 0) {
+            el.textContent = "The founding call has closed.";
+            return;
+          }
+          const d = Math.floor(left / 86400000);
+          const h = Math.floor((left % 86400000) / 3600000);
+          const m = Math.floor((left % 3600000) / 60000);
+          el.textContent = `T-minus ${d}d ${h}h ${m}m`;
+        };
+        tick();
+        setInterval(tick, 30000);
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #0b1026; /* deep night */
+        --bg-band: #10173a; /* twilight panel */
+        --ink: #e8ecff; /* starlight */
+        --ink-soft: #aab3dd;
+        --ink-faint: #7d87b8;
+        --accent: #ecb45a; /* CASSA warm gold */
+        --accent-2: #5ec8d6; /* CASSA cool cyan */
+        --accent-ink: #1a1206;
+        --line: rgba(232, 236, 255, 0.14);
+        --display: "Space Grotesk", system-ui, sans-serif;
+        --mono: "Space Mono", ui-monospace, monospace;
+      }
+
+      * { box-sizing: border-box; margin: 0; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--display);
+        font-weight: 400;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      a { color: var(--accent-2); text-underline-offset: 3px; }
+      a:hover { color: var(--ink); }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+      ::selection { background: var(--accent); color: var(--accent-ink); }
+
+      .mono { font-family: var(--mono); font-size: 0.92em; }
+
+      /* ── Starfield ── */
+      .sky {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(ellipse 90% 55% at 50% -10%, rgba(94, 200, 214, 0.12), transparent 60%),
+          radial-gradient(ellipse 70% 45% at 85% 8%, rgba(236, 180, 90, 0.07), transparent 55%);
+      }
+      .stars { position: absolute; inset: -50% 0 0; }
+      .stars::after {
+        content: "";
+        position: absolute;
+        width: 2px; height: 2px;
+        border-radius: 50%;
+        background: transparent;
+      }
+      .stars--far::after {
+        box-shadow:
+          4vw 12vh 0 0 #cdd6ff, 12vw 62vh 0 0 #9aa6e0, 19vw 33vh 0 0 #cdd6ff,
+          27vw 81vh 0 0 #9aa6e0, 33vw 21vh 0 0 #cdd6ff, 41vw 55vh 0 0 #9aa6e0,
+          48vw 9vh 0 0 #cdd6ff, 56vw 71vh 0 0 #9aa6e0, 63vw 39vh 0 0 #cdd6ff,
+          71vw 88vh 0 0 #9aa6e0, 78vw 17vh 0 0 #cdd6ff, 86vw 59vh 0 0 #9aa6e0,
+          93vw 30vh 0 0 #cdd6ff, 8vw 92vh 0 0 #9aa6e0, 97vw 78vh 0 0 #cdd6ff,
+          52vw 96vh 0 0 #9aa6e0, 24vw 120vh 0 0 #cdd6ff, 68vw 128vh 0 0 #9aa6e0,
+          88vw 112vh 0 0 #cdd6ff, 38vw 138vh 0 0 #9aa6e0;
+        opacity: 0.55;
+      }
+      .stars--mid::after {
+        width: 2.5px; height: 2.5px;
+        box-shadow:
+          9vw 26vh 0 0 #e8ecff, 22vw 74vh 0 0 #e8ecff, 37vw 44vh 0 0 #e8ecff,
+          51vw 15vh 0 0 #e8ecff, 66vw 64vh 0 0 #e8ecff, 81vw 36vh 0 0 #e8ecff,
+          95vw 86vh 0 0 #e8ecff, 15vw 5vh 0 0 #e8ecff, 45vw 91vh 0 0 #e8ecff,
+          74vw 104vh 0 0 #e8ecff, 30vw 118vh 0 0 #e8ecff, 59vw 132vh 0 0 #e8ecff;
+        opacity: 0.75;
+        animation: twinkle 5s ease-in-out infinite;
+      }
+      .stars--near::after {
+        width: 3px; height: 3px;
+        box-shadow:
+          6vw 48vh 0 0 #ecb45a, 31vw 8vh 0 0 #e8ecff, 58vw 82vh 0 0 #5ec8d6,
+          83vw 24vh 0 0 #e8ecff, 91vw 52vh 0 0 #ecb45a, 18vw 88vh 0 0 #5ec8d6,
+          70vw 6vh 0 0 #e8ecff, 43vw 124vh 0 0 #ecb45a, 12vw 136vh 0 0 #5ec8d6;
+        animation: twinkle 3.4s ease-in-out infinite reverse;
+      }
+      @keyframes twinkle { 50% { opacity: 0.35; } }
+      @media (prefers-reduced-motion: reduce) {
+        .stars--mid::after, .stars--near::after { animation: none; }
+        .blink { animation: none; }
+        html { scroll-behavior: auto; }
+      }
+
+      /* ── Hero ── */
+      .hero {
+        position: relative;
+        z-index: 1;
+        min-height: 88vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+      .blink { color: var(--accent); animation: blinkstep 1.6s steps(2) infinite; }
+      @keyframes blinkstep { 50% { opacity: 0.15; } }
+      .wordmark {
+        margin-top: 1.1rem;
+        font-size: clamp(3.4rem, 13vw, 8.5rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      .wordmark__accent {
+        color: var(--accent);
+        text-shadow: 0 0 42px rgba(236, 180, 90, 0.35);
+      }
+      .fullname {
+        margin-top: 0.85rem;
+        font-size: clamp(1rem, 2.6vw, 1.3rem);
+        color: var(--ink-soft);
+        letter-spacing: 0.04em;
+      }
+      .fullname b { color: var(--accent); font-weight: 500; }
+      .lede {
+        max-width: 40rem;
+        margin-top: 1.4rem;
+        font-size: 1.06rem;
+        color: var(--ink-soft);
+      }
+
+      .cta { margin-top: 2.4rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-weight: 700;
+        font-size: 1.08rem;
+        text-decoration: none;
+        padding: 0.95rem 2.2rem;
+        border-radius: 999px;
+        box-shadow: 0 0 0 1px rgba(236, 180, 90, 0.4), 0 10px 38px rgba(236, 180, 90, 0.28);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn:hover {
+        color: var(--accent-ink);
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(236, 180, 90, 0.55), 0 14px 46px rgba(236, 180, 90, 0.4);
+      }
+      .cta__meta { font-size: 0.86rem; color: var(--ink-faint); }
+      .cta__count { min-height: 1.4em; font-size: 0.95rem; color: var(--accent); letter-spacing: 0.06em; }
+
+      /* ── Bands ── */
+      main { position: relative; z-index: 1; }
+      .band {
+        max-width: 62rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.25rem;
+        border-top: 1px solid var(--line);
+      }
+      .band__title {
+        font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        margin-bottom: 1.4rem;
+      }
+      .band__title::after {
+        content: "";
+        display: block;
+        width: 3.2rem;
+        height: 3px;
+        margin-top: 0.55rem;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        border-radius: 2px;
+      }
+      .prose { max-width: 44rem; color: var(--ink-soft); display: grid; gap: 1rem; }
+      .prose b { color: var(--ink); font-weight: 500; }
+
+      .grid {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: var(--bg-band);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.15rem 1.25rem;
+      }
+      .card__name { font-size: 1.02rem; font-weight: 700; color: var(--accent); }
+      .card__note { margin-top: 0.4rem; font-size: 0.92rem; color: var(--ink-soft); }
+
+      .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+      .tier {
+        background: var(--bg-band);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.4rem 1.5rem;
+      }
+      .tier__label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); }
+      .tier__name { font-size: 1.6rem; font-weight: 700; margin-top: 0.35rem; }
+      .tier__note { margin-top: 0.5rem; font-size: 0.94rem; color: var(--ink-soft); }
+
+      .foot {
+        position: relative;
+        z-index: 1;
+        border-top: 1px solid var(--line);
+        padding: 2.2rem 1.25rem 2.8rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+      .faint { margin-top: 0.4rem; color: var(--ink-faint); }
+    </style>
+  </body>
+</html>
