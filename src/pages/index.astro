@@ -3,8 +3,8 @@
 // Single job: get IUB students to fill the EOI form (founding-member list —
 // DoSA recognition needs 150 documented founding members).
 const FORM_URL = "https://inside.cassa.bd/forms/general/2026-08-15-a";
-const DEADLINE_ISO = "2026-09-08T23:59:00+06:00";
-const DEADLINE_TEXT = "8 September 2026";
+const DEADLINE_ISO = "2026-09-24T23:59:00+06:00";
+const DEADLINE_TEXT = "24 September 2026";
 
 const activities = [
   { name: "Stargazing & astrophotography", note: "Night-sky observation, telescope sessions and imaging from the CASSA rooftop." },
@@ -61,7 +61,7 @@ const activities = [
         <a class="btn" href={FORM_URL}>Express your interest</a>
         <p class="cta__meta">
           <span class="mono">IUB students only</span> · submit with your
-          <span class="mono">@iub.edu.bd</span> email · closes <span class="mono">{DEADLINE_TEXT}</span>
+          <span class="mono">@iub.edu.bd</span> email · closes <span class="mono">{DEADLINE_TEXT}</span> (extended)
         </p>
         <p class="cta__count mono" id="countdown" data-deadline={DEADLINE_ISO}></p>
       </div>

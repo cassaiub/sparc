@@ -9,7 +9,7 @@ under DoSA is in progress.
   countdown script).
 - The EOI form itself lives in Inside:
   <https://inside.cassa.bd/forms/general/2026-08-15-a> (IUB emails only,
-  closes 8 September 2026, filed under the IUB-SPARC program).
+  closes 24 September 2026 (extended from 8 September), filed under the IUB-SPARC program).
 
 ## Develop
 
